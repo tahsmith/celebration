@@ -32,7 +32,8 @@ class SparkleParticle extends Particle
   {
     super.update(dt);
     float p = random(0, 1);
-    flicker = p < (1.0 - 0.5 * atan(age / sparkleAge));
+    float normedAge = age / sparkleAge ;
+    flicker = p > (normedAge * exp(-normedAge));
     p = random(0, 1);
   }
 };
