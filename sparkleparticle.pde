@@ -18,7 +18,7 @@ class SparkleParticle extends Particle
   
   void draw()
   {
-    if(alive) //<>//
+    if(alive && flicker) //<>//
     {
       float fade = minSize / (sparkleParticleSize * (1 + pos.z));
       float alpha = 255.0 * (fade * fade);
@@ -33,7 +33,7 @@ class SparkleParticle extends Particle
     super.update(dt);
     float p = random(0, 1);
     float normedAge = age / sparkleAge ;
-    flicker = p > (normedAge * exp(-normedAge));
+    flicker = p < (0.5 * exp(1) * normedAge * normedAge * exp(-normedAge));
     p = random(0, 1);
   }
 };

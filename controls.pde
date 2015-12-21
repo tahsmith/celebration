@@ -30,9 +30,11 @@ class ParameterControls
     addSliderControl("burstForce", 0, 1, 0.5);
     addSliderControl("burstDrag", 0, 1.0, 0.01);
     addSliderControl("burstParticleLifetime", 0.0, 60, 60);
-    addSliderControl("burstFadeTime", 0, 0.1, 0.05);
-    addSliderControl("sparkleAge", 0.0, 10, 2);
+    addSliderControl("burstAlphaFadeTime", 0, 0.1, 0.05);
+    addSliderControl("burstColourFadeTime", 0, 0.1, 0.05);
+    addSliderControl("burstHue", 0, 255, 0);
     
+    addSliderControl("sparkleAge", 0.0, 10, 2);
     addSliderControl("sparkleParticleSize", 0, 0.5, 0.05);
     addSliderControl("sparklePathRandomisation", 0, 1.0, 0.01);
     addSliderControl("sparkleDrag", 0, 1.0, 0.01);

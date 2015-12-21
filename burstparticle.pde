@@ -2,12 +2,15 @@ float burstParticleSize;
 float burstParticleDrag;
 float burstParticleLifetime;
 float burstParticlePathRandomisation;
-float burstFadeTime;
+float burstAlphaFadeTime;
+float burstColourFadeTime;
+float burstHue;
 
 class BurstParticle extends Particle
 {
   static final float minSize = 0.03;
   Particle particle;
+  float fadeRandomisation = random(0.2, 0.8);
   
   BurstParticle()
   {
@@ -18,10 +21,10 @@ class BurstParticle extends Particle
   {
     if(alive)
     {
-      float fade = minSize / (burstParticleSize * (1 + pos.z) * age / (lifetime * burstFadeTime));
-      //float alpha = 255.0 * (fade * fade);
+      float fade = minSize / (burstParticleSize * (1 + pos.z) * age / (burstAlphaFadeTime * lifetime));
+      float temperatureInverse = pow(age / burstColourFadeTime * fadeRandomisation, 4);
       colorMode(HSB);
-      fill(0,  255 * (1 - atan(fade * fade)), 255, 255 * fade * fade); //<>//
+      fill(burstHue,  255 * atan(temperatureInverse), 255, 255 * fade * fade); //<>//
       noStroke();
       ellipse(pos.x, pos.y, burstParticleSize, burstParticleSize);
     }

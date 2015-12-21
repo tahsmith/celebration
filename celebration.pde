@@ -50,8 +50,8 @@ void cleanDeadParticles()
 
 void setup()
 {
-  size(640, 480);
-  //fullScreen(P2D);
+  //size(640, 480);
+  fullScreen(P2D);
   frameRate(60);
   //smooth(4);
   parameterControls = new ParameterControls(this);
