@@ -39,6 +39,7 @@ class ParameterControls
     addSliderControl("sparklePathRandomisation", 0, 1.0, 0.01);
     addSliderControl("sparkleDrag", 0, 1.0, 0.01);
     addSliderControl("sparkleLifetime", 0.0, 60, 60);
+    addSliderControl("sparkleFade", 0, 3.0, 1.0);
     cp5.addFrameRate().setInterval(10).setPosition(40, 40);
   }
   

@@ -4,6 +4,7 @@ float sparkleDrag;
 float sparkleLifetime;
 float flickerAge;
 float sparkleAge;
+float sparkleFade;
 
 class SparkleParticle extends Particle
 {
@@ -21,7 +22,7 @@ class SparkleParticle extends Particle
     if(alive && flicker) //<>//
     {
       float fade = minSize / (sparkleParticleSize * (1 + pos.z));
-      float alpha = 255.0 * (fade * fade);
+      float alpha = 255.0 * (fade * fade) * sparkleFade;
       fill(0, 0, 255, flicker ? alpha  : 0);
       noStroke();
       ellipse(pos.x, pos.y, sparkleParticleSize, sparkleParticleSize);
