@@ -25,7 +25,7 @@ class ParameterControls
     addSliderControl("lengthScalePower", -4, 4, 0);
     addSliderControl("gravityStrength", 0.0, 1.0, 0.5);
     addSliderControl("particleSize", 0, 100, 20);
-    addSliderControl("burstFrequency", 0, 10, 0);
+    addSliderControl("burstFrequency", 10, 10, 0);
     addSliderControl("burstPathRandomisation", 0, 1.0, 0.01);
     addSliderControl("burstForce", 0, 1, 0.5);
     addSliderControl("burstDrag", 0, 1.0, 0.01);
