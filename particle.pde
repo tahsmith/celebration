@@ -1,4 +1,5 @@
 float gravityStrength;
+float particleSize;
 
 abstract class Particle
 {

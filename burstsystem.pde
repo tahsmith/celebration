@@ -1,5 +1,6 @@
 float burstFrequency = 1.0;
 float maxBurstSize = 500;
+float burstPatchSize = 1.0;
 
 
 class BurstSystem
@@ -12,7 +13,7 @@ class BurstSystem
     for(int i = 0; i < scale * maxBurstSize / 2; ++i)
     {
       BurstParticle particle = new BurstParticle();
-      particle.pos = pos.copy();
+      particle.pos = PVector.add(pos, PVector.random3D().mult(burstPatchSize));
       particle.vel = PVector.random3D().mult(burstForce);
       particles.add(particle);
     }
@@ -20,7 +21,7 @@ class BurstSystem
     for(int i = 0; i < scale * maxBurstSize / 2; ++i)
     {
       SparkleParticle particle = new SparkleParticle();
-      particle.pos = pos.copy();
+      particle.pos = PVector.add(pos, PVector.random3D().mult(burstPatchSize));
       particle.vel = PVector.random3D().mult(burstForce);
       particles.add(particle);
     }

@@ -1,4 +1,3 @@
-float sparkleParticleSize;
 float sparklePathRandomisation;
 float sparkleDrag;
 float sparkleLifetime;
@@ -8,7 +7,6 @@ float sparkleFade;
 
 class SparkleParticle extends Particle
 {
-  static final float minSize = 0.03;
   boolean flicker = true;
   boolean alive = true;
   
@@ -21,11 +19,9 @@ class SparkleParticle extends Particle
   {
     if(alive && flicker) //<>//
     {
-      float fade = minSize / (sparkleParticleSize * (1 + pos.z));
-      float alpha = 255.0 * (fade * fade) * sparkleFade;
-      fill(0, 0, 255, flicker ? alpha  : 0);
-      noStroke();
-      ellipse(pos.x, pos.y, sparkleParticleSize, sparkleParticleSize);
+      float fade = 1 / (1 + pos.z);
+      int alpha = int(255.0 * (fade * fade) * sparkleFade);
+      drawCircle(pos.x * width * lengthScale, pos.y * width * lengthScale, 0, 0, 255, flicker ? alpha : 0);
     }
   }
   

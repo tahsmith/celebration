@@ -38,8 +38,10 @@ void draw()
   background(#000000); //<>//
   pushMatrix();
   translate(width, height);
-  scale(width * lengthScale);
+  //scale(width * lengthScale);
   rotate(PI);
+  initialiseCircle(int(particleSize));
+  colorMode(HSB);
   burstSystem.draw();
   popMatrix();
 }

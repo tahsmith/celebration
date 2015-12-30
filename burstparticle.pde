@@ -1,4 +1,3 @@
-float burstParticleSize;
 float burstParticleDrag;
 float burstParticleLifetime;
 float burstParticlePathRandomisation;
@@ -21,12 +20,9 @@ class BurstParticle extends Particle
   {
     if(alive)
     {
-      float fade = minSize / (burstParticleSize * (1 + pos.z) * age / (burstAlphaFadeTime * lifetime));
-      float temperatureInverse = pow(age / burstColourFadeTime * fadeRandomisation, 4);
-      colorMode(HSB);
-      fill(burstHue,  255 * atan(temperatureInverse), 255, 255 * fade * fade); //<>//
-      noStroke();
-      ellipse(pos.x, pos.y, burstParticleSize, burstParticleSize);
+      float fade = minSize / ((1 + pos.z) * age / (burstAlphaFadeTime * lifetime));
+      float temperatureInverse = pow(age / burstColourFadeTime * fadeRandomisation, 4); //<>//
+      drawCircle(pos.x * width * lengthScale, pos.y * width * lengthScale, burstHue,  255 * atan(temperatureInverse), 255, 255 * fade * fade);
     }
   }
   
