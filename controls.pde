@@ -25,7 +25,7 @@ class ParameterControls
     addSliderControl("lengthScalePower", -4, 4, 0);
     addSliderControl("gravityStrength", 0.0, 1.0, 0.5);
     addSliderControl("particleSize", 0, 100, 20);
-    addSliderControl("burstFrequency", 10, 10, 0);
+    addSliderControl("burstFrequency", 0, 10, 10);
     addSliderControl("burstPathRandomisation", 0, 1.0, 0.01);
     addSliderControl("burstForce", 0, 1, 0.5);
     addSliderControl("burstDrag", 0, 1.0, 0.01);
@@ -42,6 +42,8 @@ class ParameterControls
     addSliderControl("sparkleFade", 0, 3.0, 1.0);
     
     addSliderControl("burstPatchSize", 0, 1, 0.1);
+    addSliderControl("maxBurstSize", 0, 1000, 500);
+    addSliderControl("maxParticleCount", 0, 10000, 1000);
     cp5.addFrameRate().setInterval(10).setPosition(40, 40);
   }
   

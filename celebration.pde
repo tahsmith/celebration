@@ -16,10 +16,9 @@ BurstSystem burstSystem = new BurstSystem(); //<>//
 
 void setup()
 {
-  //size(640, 480);
-  fullScreen(P2D);
+  fullScreen();
   frameRate(60);
-  //smooth(4);
+  noSmooth();
   parameterControls = new ParameterControls(this);
   
   depth = width;
