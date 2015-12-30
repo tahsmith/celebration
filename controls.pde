@@ -44,6 +44,7 @@ class ParameterControls
     addSliderControl("burstPatchSize", 0, 1, 0.1);
     addSliderControl("maxBurstSize", 0, 1000, 500);
     addSliderControl("maxParticleCount", 0, 10000, 1000);
+    addSliderControl("burstiness", 0, 1, 0);
     cp5.addFrameRate().setInterval(10).setPosition(40, 40);
   }
   
