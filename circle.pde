@@ -4,8 +4,15 @@ float circleImageHalfHeight;
 
 void drawCircle(float x, float y, float r, float g, float b, float alpha)
 {
-  tint(r, g, b, alpha);
-  image(circleImage, x - circleImageHalfWidth, y - circleImageHalfHeight);
+  if((alpha > 0.1) 
+  && ((x + circleImageHalfWidth) > 0) 
+  && ((x - circleImageHalfWidth) < width)
+  && ((y + circleImageHalfHeight) > 0)
+  && ((y - circleImageHalfHeight) < height))
+  {
+    tint(r, g, b, alpha);
+    image(circleImage, x - circleImageHalfWidth, y - circleImageHalfHeight);
+  }
 }
 
 void initialiseCircle(int radius)
