@@ -7,6 +7,7 @@ float timeScalePower = 0.0;
 float lengthScale = 1.0;
 float lengthScalePower = 0.0;
 boolean shiftKey = false;
+boolean hourToggle = false;
 
 static PVector gravity = new PVector(0, -1.0);
 int v1;
@@ -30,6 +31,12 @@ void setup()
 
 void draw()
 {
+  if((hour() == 0) && !hourToggle)
+  {
+    hourToggle = true;
+    parameterControls.load('2');
+  }
+  
   timeScale = pow(2, timeScalePower);
   lengthScale = pow(2, lengthScalePower);
   float dt = timeScale / frameRate;
