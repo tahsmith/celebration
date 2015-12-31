@@ -48,15 +48,17 @@ class ParameterControls
     cp5.addFrameRate().setInterval(10).setPosition(40, 40);
   }
   
-  void save()
+  void save(char k)
   {
-    cp5.getProperties().setSnapshot("save");
-    cp5.getProperties().saveSnapshot("save");
+    String name = "" + k;
+    cp5.getProperties().setSnapshot(name);
+    cp5.getProperties().saveSnapshot(name);
   }
   
-  void load()
+  void load(char k)
   {
-    cp5.getProperties().load("save");
+    String name = "" + k;
+    cp5.getProperties().load(name);
   }
   
   void toggleVisibility()

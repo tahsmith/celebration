@@ -6,13 +6,14 @@ float timeScale = 1.0;
 float timeScalePower = 0.0;
 float lengthScale = 1.0;
 float lengthScalePower = 0.0;
+boolean shiftKey = false;
 
 static PVector gravity = new PVector(0, -1.0);
 int v1;
 
 ParameterControls parameterControls;
 
-BurstSystem burstSystem = new BurstSystem(); //<>//
+BurstSystem burstSystem = new BurstSystem();
 
 void setup()
 {
@@ -34,7 +35,7 @@ void draw()
   float dt = timeScale / frameRate;
   burstSystem.update(dt);
   
-  background(#000000); //<>//
+  background(#000000);
   pushMatrix();
   translate(width, height);
   //scale(width * lengthScale);
@@ -48,16 +49,40 @@ void draw()
 
 void keyPressed()
 {
-  switch(key)
+  if(key == CODED)
   {
-    case('s'):
-    parameterControls.save();
-    break;
-    case('l'):
-    parameterControls.load();
-    break;
-    case('h'):
-    parameterControls.toggleVisibility();
-    break;
+    if(keyCode == CONTROL)
+    {
+      shiftKey = true;
+    }
+  }
+  else
+  {
+    if(key == 'h')
+    {
+      parameterControls.toggleVisibility();
+    }
+    if(key <= '9' && key >= '0') //<>//
+    {
+      if(shiftKey)
+      {
+        parameterControls.save(key);
+      }
+      else
+      {
+        parameterControls.load(key);
+      }
+    }
+  }
+}
+
+void keyReleased()
+{
+  if(key == CODED)
+  {
+    if(keyCode == CONTROL)
+    {
+      shiftKey = false;
+    }
   }
 }
