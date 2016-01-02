@@ -58,7 +58,6 @@ class BurstSystem
     cleanDeadParticles();
     float p = random(0, 1);
     int emptyParticleSpace = maxParticleCount - particles.size();
-    println(emptyParticleSpace);
     if(p < (pow((float)emptyParticleSpace / maxParticleCount, burstiness)))
     {
       timeSinceLastBurst = 0;
