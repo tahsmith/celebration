@@ -1,3 +1,5 @@
+import controlP5.*;
+
 class ParameterControls
 {
   ControlP5 cp5;

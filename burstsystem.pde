@@ -1,30 +1,37 @@
 float burstFrequency = 1.0;
 int maxBurstSize = 500;
-float burstPatchSize = 1.0;
-int maxParticleCount = 5000;
-float burstiness = 0.0;
+float burstPatchSize = 0.0;
+int maxParticleCount = 1000;
+float burstiness = 1.0;
 
 
 class BurstSystem
 {
-  ArrayList<Particle> particles = new ArrayList<Particle>();
+  ArrayList<Particle> particles;
   float timeSinceLastBurst = 0.0;
+
+  BurstSystem()
+  {
+    particles = new ArrayList<Particle>();
+  }
 
   void addBurst(PVector pos, int particleCount)
   {
-    for(int i = 0; i < (particleCount + 1) / 2; ++i)
+    for(int i = 0; i < (particleCount + 1) / 2.0; ++i)
     {
       BurstParticle particle = new BurstParticle();
-      particle.pos = PVector.add(pos, PVector.random3D().mult(burstPatchSize));
-      particle.vel = PVector.random3D().mult(burstForce);
+      particle.pos = new PVector(pos.x, pos.y, pos.z);
+      particle.pos.add(PVector.mult(randomDir3d(), burstPatchSize));
+      particle.vel = PVector.mult(randomDir3d(), burstForce);
       particles.add(particle);
     }
     
-    for(int i = 0; i < (particleCount - 1) / 2; ++i)
+    for(int i = 0; i < (particleCount - 1) / 2.0; ++i)
     {
       SparkleParticle particle = new SparkleParticle();
-      particle.pos = PVector.add(pos, PVector.random3D().mult(burstPatchSize));
-      particle.vel = PVector.random3D().mult(burstForce);
+      particle.pos = new PVector(pos.x, pos.y, pos.z);
+      particle.pos.add(PVector.mult(randomDir3d(), burstPatchSize));
+      particle.vel = PVector.mult(randomDir3d(), burstForce);
       particles.add(particle);
     }
   }
