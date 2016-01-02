@@ -21,7 +21,7 @@ void initialiseCircle(int radius)
    circleImageHalfWidth = radius;
    circleImage = createGraphics(radius * 2, radius * 2);
    circleImage.noSmooth();
-   circleImage.beginDraw(); //<>//
+   circleImage.beginDraw();
    circleImage.background(0,0,0,0);
    circleImage.noStroke();
    circleImage.fill(255, 255, 255);

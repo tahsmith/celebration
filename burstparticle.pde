@@ -21,14 +21,14 @@ class BurstParticle extends Particle
   {
     if(alive)
     {
-      float fade = minSize / ((1 + pos.z) * age / (burstAlphaFadeTime * lifetime)); //<>//
-      float temperatureInverse = pow(age / burstColourFadeTime * fadeRandomisation, 4); //<>// //<>//
+      float fade = minSize / ((1 + pos.z) * age / (burstAlphaFadeTime * lifetime));
+      float temperatureInverse = pow(age / burstColourFadeTime * fadeRandomisation, 4);
       drawCircle(pos.x * width * lengthScale, pos.y * width * lengthScale, burstHue,  255 * atan(temperatureInverse), 255, 255 * fade * fade);
     }
   }
   
   void update(float dt)
   { //<>//
-    super.update(dt); //<>// //<>//
+    super.update(dt);
   }
 };

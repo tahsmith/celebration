@@ -69,10 +69,10 @@ void keyPressed()
   else
   {
     if(key == 'h')
-    { //<>// //<>//
-      //parameterControls.toggleVisibility(); //<>//
-    } //<>//
-    if(key <= '9' && key >= '0') //<>//
+    {
+      //parameterControls.toggleVisibility();
+    }
+    if(key <= '9' && key >= '0')
     {
       if(shiftKey)
       {

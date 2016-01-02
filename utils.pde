@@ -15,7 +15,6 @@ static String camelCaseToSpaces(String name)
 
 PVector randomDir3d()
 {
-  //debugger;
   PVector x = new PVector(random(-1, 1), random(-1, 1), random(-1, 1));
   x.normalize();
   return x;

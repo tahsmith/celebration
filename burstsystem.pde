@@ -2,7 +2,7 @@ float burstFrequency = 1.0;
 int maxBurstSize = 500;
 float burstPatchSize = 0.0;
 int maxParticleCount = 1000;
-float burstiness = 1.0;
+float burstiness = 5.0;
 
 
 class BurstSystem
@@ -58,6 +58,7 @@ class BurstSystem
     cleanDeadParticles();
     float p = random(0, 1);
     int emptyParticleSpace = maxParticleCount - particles.size();
+    println(emptyParticleSpace);
     if(p < (pow((float)emptyParticleSpace / maxParticleCount, burstiness)))
     {
       timeSinceLastBurst = 0;

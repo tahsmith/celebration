@@ -9,16 +9,15 @@ static final float sparkleC1 = 0.5 * exp(1);
 class SparkleParticle extends Particle
 {
   boolean flicker = true;
-  boolean alive = true;
   
   SparkleParticle()
-  { //<>// //<>// //<>//
-    super(1.0, sparkleDrag, sparkleLifetime, sparklePathRandomisation); //<>// //<>// //<>//
+  {
+    super(1.0, sparkleDrag, sparkleLifetime, sparklePathRandomisation);
   }
   
   void draw()
-  { //<>// //<>// //<>//
-    if(alive && flicker) //<>// //<>// //<>//
+  {
+    if(alive && flicker)
     {
       float fade = 1 / (1 + pos.z);
       float alpha = 255.0 * (fade * fade) * sparkleFade;
@@ -32,6 +31,5 @@ class SparkleParticle extends Particle
     float p = random(0, 1);
     float normedAge = age / sparkleAge ;
     flicker = p < (sparkleC1 * normedAge * normedAge * exp(-normedAge));
-    p = random(0, 1);
   }
 };
