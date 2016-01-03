@@ -3,6 +3,13 @@
   <title>Celebration</title>
   <script src="processing.min.js"></script>
   <script src="jprocessingjs-0.9.min.js"></script>
+  <script type="text/javascript">
+  function parameterChanged(event)
+  {
+  	processingInstance = Processing.getInstanceById('celebration');
+  	processingInstance.setParameter(event.target.getAttribute("id"), parseFloat(event.target.value));
+  }
+  </script>
   <style type="text/css">
 	body {
 		margin:0; padding:0;
@@ -10,10 +17,55 @@
 		color:#F0F0F0;
 	}
 
+	.overlay {
+		position: absolute;
+		top: 50px;
+		left: 50px;
+		z-index: 10;
+	}
+
+	.collapse{
+      font-size: 31px;
+      display:block;
+	}
+	.collapse + input{
+	  display:none;
+	}
+	.collapse + input + *{
+	  display:none;
+	}
+	.collapse+ input:checked + *{
+	  display:block;
+	}
+
+
+	div.parameter
+	{
+		display: block;
+		width: 100pc;
+		position: relative;
+	}
+
+	h3.parameter {
+		display: inline;
+		width: 30pc;
+		position: relative;
+	}
+
+	input.parameter
+	{
+		width: 60pc;
+		position: relative;
+	}
+
 	canvas { margin:0; padding:0; }
 </style>
 </head>
 <body>
-  <canvas data-processing-sources="celebration.pde particle.pde burstparticle.pde sparkleparticle.pde burstsystem.pde circle.pde utils.pde"></canvas>
+	  <label class="collapse" for="_1">Controls</label>
+  <input id="_1" type="checkbox">
+	<div class="overlay" id="controls">
+	</div>
+  <canvas id="celebration" data-processing-sources="celebration.pde particle.pde burstparticle.pde sparkleparticle.pde burstsystem.pde circle.pde utils.pde jscontrols.pjs parameters.pde"></canvas>
 </body>
 </html>

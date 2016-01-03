@@ -28,7 +28,7 @@ class BurstParticle extends Particle
   }
   
   void update(float dt)
-  { //<>//
+  {
     super.update(dt);
   }
 };

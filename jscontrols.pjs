@@ -1,0 +1,56 @@
+void setParameter(String name, String value)
+{
+  debugger;
+  eval(name + " = " + value);
+}
+
+class ParameterControls
+{
+  int controlCount = 1;
+  boolean isVisible = true;
+  
+  void addSliderControl(String name, float min, float max, float value)
+  {
+    setParameter(name, value);
+    var controlsDiv = document.getElementById("controls");
+    var paramDiv = document.createElement("div");
+    paramDiv.setAttribute("class", "parameter");
+    var slider = document.createElement("input");
+    slider.setAttribute("type", "range");
+    slider.setAttribute("onchange", "parameterChanged(event)");
+    slider.setAttribute("id", name);
+    slider.setAttribute("class", "parameter");
+    slider.setAttribute("min", min);
+    slider.setAttribute("max", max);
+    slider.setAttribute("step", (max - min) / 100);
+    slider.value = value
+
+    var label = document.createElement("h3");
+    label.textContent = name;
+    label.setAttribute("class", "parameter")
+
+    paramDiv.appendChild(label);
+    paramDiv.appendChild(slider);
+    controlsDiv.appendChild(paramDiv);
+    controlCount += 1;
+  }
+  
+  ParameterControls(PApplet applet)
+  {
+  }
+  
+  
+  void toggleVisibility()
+  {
+    debugger;
+    var controlDiv = document.getElementById("controls");
+    if(isVisible)
+    {
+      controlDiv.setAttribute("hidden");
+    }
+    else
+    {
+    }
+    isVisible = !isVisible;
+  }
+};

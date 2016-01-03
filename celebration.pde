@@ -10,19 +10,20 @@ boolean hourToggle = false;
 static PVector gravity;
 int v1;
 
-//ParameterControls parameterControls;
+ParameterControls parameterControls;
 
 BurstSystem burstSystem;
 
 void setup()
 {
-  jProcessingJS(this, {fullscreen:true});
-  gravity = new PVector(0, -1.0);
+  //jProcessingJS(this, {fullscreen:true});
   //fullScreen();
-  //size(640, 480);
+  size(640, 480);
   frameRate(60);
   noSmooth();
-  //parameterControls = new ParameterControls(this);
+  gravity = new PVector(0, -1.0);
+  parameterControls = new ParameterControls(this);
+  addParameters();
   
   depth = width;
   burstSystem = new BurstSystem();
@@ -71,7 +72,7 @@ void keyPressed()
   {
     if(key == 'h')
     {
-      //parameterControls.toggleVisibility();
+      parameterControls.toggleVisibility();
     }
     if(key <= '9' && key >= '0')
     {
