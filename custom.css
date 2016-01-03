@@ -1,0 +1,21 @@
+body {
+	color: #F0F0F0;
+}
+
+.panel {
+	border: none;
+}
+
+.panel-default {
+	background-color: transparent;
+}
+
+.panel-body {
+	border: none !important;
+}
+
+.panel-heading {
+	border-radius: 0px !important;
+	background-image: none !important;
+	background-color: rgba(100, 100, 100, 0.6) !important;
+}

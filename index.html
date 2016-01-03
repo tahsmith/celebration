@@ -1,71 +1,71 @@
 <html>
 <head>
   <title>Celebration</title>
-  <script src="processing.min.js"></script>
-  <script src="jprocessingjs-0.9.min.js"></script>
-  <script type="text/javascript">
-  function parameterChanged(event)
-  {
-  	processingInstance = Processing.getInstanceById('celebration');
-  	processingInstance.setParameter(event.target.getAttribute("id"), parseFloat(event.target.value));
-  }
+
+    <script type="text/javascript">
+	function parameterChanged(event)
+	{
+		processingInstance = Processing.getInstanceById('celebration');
+		processingInstance.setParameter(event.target.getAttribute("id"), parseFloat(event.target.value));
+	}
   </script>
   <style type="text/css">
-	body {
-		margin:0; padding:0;
-		background-color:#000000;
-		color:#F0F0F0;
-	}
-
 	.overlay {
 		position: absolute;
-		top: 50px;
-		left: 50px;
+		top: 0px;
+		left: 0px;
+		float: left;
 		z-index: 10;
+		opacity: 0.6;
 	}
 
-	.collapse{
-      font-size: 31px;
-      display:block;
-	}
-	.collapse + input{
-	  display:none;
-	}
-	.collapse + input + *{
-	  display:none;
-	}
-	.collapse+ input:checked + *{
-	  display:block;
-	}
-
-
-	div.parameter
-	{
-		display: block;
+	.container-fluid {
+		position: relative;
 		width: 100pc;
-		position: relative;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		text-align: center;
 	}
-
-	h3.parameter {
-		display: inline;
-		width: 30pc;
-		position: relative;
-	}
-
-	input.parameter
-	{
-		width: 60pc;
-		position: relative;
-	}
-
 	canvas { margin:0; padding:0; }
-</style>
+  </style>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="custom.css">
+  <script src="processing.min.js"></script>
+  <script src="jprocessingjs-0.9.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-	  <label class="collapse" for="_1">Controls</label>
-  <input id="_1" type="checkbox">
-	<div class="overlay" id="controls">
+	<canvas id="celebration" data-processing-sources="celebration.pde particle.pde burstparticle.pde sparkleparticle.pde burstsystem.pde circle.pde utils.pde jscontrols.pjs parameters.pde"></canvas>
+	<div class="overlay">
+		<div class="container-fluid sm-1">
+			<div class="col-sm-2">
+				<div class="row">
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<a href="#controlsCollapse" role="button" data-toggle="collapse" aria-expanded="true">
+									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								</a>
+							</div>
+							<div id="controlsCollapse" class="panel-collapse collapse" role="tabpanel">
+								<div class="panel-body">
+									<form id="controls">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-  <canvas id="celebration" data-processing-sources="celebration.pde particle.pde burstparticle.pde sparkleparticle.pde burstsystem.pde circle.pde utils.pde jscontrols.pjs parameters.pde"></canvas>
 </body>
 </html>

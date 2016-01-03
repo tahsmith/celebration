@@ -1,6 +1,5 @@
 void setParameter(String name, String value)
 {
-  debugger;
   eval(name + " = " + value);
 }
 
@@ -14,20 +13,20 @@ class ParameterControls
     setParameter(name, value);
     var controlsDiv = document.getElementById("controls");
     var paramDiv = document.createElement("div");
-    paramDiv.setAttribute("class", "parameter");
+    paramDiv.setAttribute("class", "form-group");
     var slider = document.createElement("input");
     slider.setAttribute("type", "range");
     slider.setAttribute("onchange", "parameterChanged(event)");
     slider.setAttribute("id", name);
-    slider.setAttribute("class", "parameter");
+    slider.setAttribute("class", "form-group");
     slider.setAttribute("min", min);
     slider.setAttribute("max", max);
     slider.setAttribute("step", (max - min) / 100);
     slider.value = value
 
-    var label = document.createElement("h3");
+    var label = document.createElement("label");
     label.textContent = name;
-    label.setAttribute("class", "parameter")
+    label.setAttribute("for", name);
 
     paramDiv.appendChild(label);
     paramDiv.appendChild(slider);
