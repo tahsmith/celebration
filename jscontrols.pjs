@@ -25,7 +25,7 @@ class ParameterControls
     slider.value = value
 
     var label = document.createElement("label");
-    label.textContent = name;
+    label.textContent = camelCaseToSpaces(name);
     label.setAttribute("for", name);
 
     paramDiv.appendChild(label);
