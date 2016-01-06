@@ -19,7 +19,7 @@ class SparkleParticle extends Particle
   {
     if(alive && flicker)
     {
-      float fade = 1 / (1 + pos.z * pos.z);
+      float fade = 1 / (1 + pos.z);
       float alpha = 255.0 * (fade * fade) * sparkleFade;
       drawCircle(pos.x * width * lengthScale, pos.y * width * lengthScale, 0, 0, 255, alpha);
     }
