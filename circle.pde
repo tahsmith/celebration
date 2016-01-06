@@ -2,17 +2,24 @@ PGraphics circleImage;
 float circleImageHalfWidth;
 float circleImageHalfHeight;
 
+//void drawCircle(float x, float y, float r, float g, float b, float alpha)
+//{
+//  if((alpha > 0.1) 
+//  && ((x + circleImageHalfWidth) > 0) 
+//  && ((x - circleImageHalfWidth) < width)
+//  && ((y + circleImageHalfHeight) > 0)
+//  && ((y - circleImageHalfHeight) < height))
+//  {
+//    tint(r, g, b, alpha);
+//    image(circleImage, x - circleImageHalfWidth, y - circleImageHalfHeight);
+//  }
+//}
+
 void drawCircle(float x, float y, float r, float g, float b, float alpha)
 {
-  if((alpha > 0.1) 
-  && ((x + circleImageHalfWidth) > 0) 
-  && ((x - circleImageHalfWidth) < width)
-  && ((y + circleImageHalfHeight) > 0)
-  && ((y - circleImageHalfHeight) < height))
-  {
-    tint(r, g, b, alpha);
-    image(circleImage, x - circleImageHalfWidth, y - circleImageHalfHeight);
-  }
+    fill(r,g,b, alpha);
+    noStroke();
+    ellipse(x, y, circleImageHalfWidth, circleImageHalfWidth);  
 }
 
 void initialiseCircle(int radius)
@@ -28,3 +35,9 @@ void initialiseCircle(int radius)
    circleImage.ellipse(radius,radius,radius,radius); 
    circleImage.endDraw();
 }
+
+//void initialiseCircle(int radius)
+//{
+//   circleImageHalfHeight = radius;
+//   circleImageHalfWidth = radius;
+//}

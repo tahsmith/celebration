@@ -24,7 +24,7 @@ abstract class Particle
   void update(float dt)
   {
     float p = random(0, 1);
-    alive = alive && (p < exp(-age / lifetime));
+    alive = alive && (p < (exp(- dt / lifetime)));
     PVector meander = randomDir3d();
     meander.mult(pathRandomisation);
     acc = PVector.add(PVector.add(PVector.mult(vel, -drag), gravity), meander);

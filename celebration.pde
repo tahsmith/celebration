@@ -18,7 +18,7 @@ void setup()
 {
   jProcessingJS(this, {fullscreen:true});
   //fullScreen();
-  //size(640, 480);
+  size(1280, 720);
   frameRate(60);
   noSmooth();
   gravity = new PVector(0, -1.0);
@@ -27,8 +27,6 @@ void setup()
   
   depth = width;
   burstSystem = new BurstSystem();
-  PVector pos = new PVector(random(0, 1), random(0, float(height) / float(width)), random(0, 1));
-  burstSystem.addBurst(pos, 1);
 }
 
 
@@ -54,7 +52,7 @@ void draw()
   rotate(PI);
   initialiseCircle(int(particleSize));
   colorMode(HSB);
-  burstSystem.draw();
+  burstSystem.draw(); //<>//
   popMatrix();
 }
 

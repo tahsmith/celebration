@@ -1,4 +1,3 @@
-float burstFrequency = 1.0;
 int maxBurstSize = 500;
 float burstPatchSize = 0.0;
 int maxParticleCount = 1000;
@@ -58,11 +57,11 @@ class BurstSystem
     cleanDeadParticles();
     float p = random(0, 1);
     int emptyParticleSpace = maxParticleCount - particles.size();
-    if(p < (pow((float)emptyParticleSpace / maxParticleCount, burstiness)))
+    if(p < (pow((float)emptyParticleSpace / maxParticleCount, 1 / (1 - burstiness) - 1)))
     {
-      timeSinceLastBurst = 0;
       PVector pos = new PVector(random(0, 1), random(0, float(height) / float(width)), random(0, 1));
       burstSystem.addBurst(pos, emptyParticleSpace);
+      timeSinceLastBurst = 0;
     }
     else
     {
@@ -72,7 +71,7 @@ class BurstSystem
   
   void draw()
   {
-    for(Particle particle : particles)
+    for(Particle particle : particles) //<>//
     {
       particle.draw();
     }
