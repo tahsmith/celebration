@@ -20,7 +20,7 @@ class BurstParticle extends Particle
   {
     if(alive)
     {
-      float fade = 1 / ((1 + pos.z * pos.z) * (1 + age / (lifetime * timeScale * burstAlphaFadeTime)));
+      float fade = 1 / ((1 + pos.z * pos.z) * (1 + age / (lifetime * burstAlphaFadeTime)));
       float temperatureInverse = pow(age / burstColourFadeTime, 4);
       drawCircle(pos.x * width * lengthScale, pos.y * width * lengthScale, burstHue,  255 * (1 - 1.0 / (1.0 + temperatureInverse)), 255, 255 * fade);
     }
