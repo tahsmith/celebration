@@ -16,9 +16,9 @@ BurstSystem burstSystem;
 
 void setup()
 {
-  //jProcessingJS(this, {fullscreen:true});
+  jProcessingJS(this, {fullscreen:true});
   //fullScreen();
-  size(1280, 720);
+  //size(1280, 720);
   frameRate(60);
   noSmooth();
   gravity = new PVector(0, -1.0);
