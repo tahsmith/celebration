@@ -1,9 +1,9 @@
 float depth;
 float burstForce = 0.1;
 float timeScale = 1.0;
-float timeScalePower = -4.0;
+float timeScaleExponent = -4.0;
 float lengthScale = 1.0;
-float lengthScalePower = 0.0;
+float lengthScaleExponent = 0.0;
 boolean shiftKey = false;
 boolean hourToggle = false;
 
@@ -16,7 +16,7 @@ BurstSystem burstSystem;
 
 void setup()
 {
-  jProcessingJS(this, {fullscreen:true});
+  //jProcessingJS(this, {fullscreen:true});
   //fullScreen();
   size(1280, 720);
   frameRate(60);
@@ -40,8 +40,8 @@ void draw()
   
   gravity = new PVector(0, -1);
   gravity.mult(gravityStrength);
-  timeScale = pow(2, timeScalePower);
-  lengthScale = pow(2, lengthScalePower);
+  timeScale = pow(2, timeScaleExponent);
+  lengthScale = pow(2, lengthScaleExponent);
   float dt = timeScale / frameRate;
   burstSystem.update(dt);
   

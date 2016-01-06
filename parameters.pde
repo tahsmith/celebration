@@ -1,7 +1,7 @@
 void addParameters()
 {
-    parameterControls.addSliderControl("timeScalePower", -4, 4, 0);
-    parameterControls.addSliderControl("lengthScalePower", -4, 4, 0);
+    parameterControls.addSliderControl("timeScaleExponent", -4, 4, 0);
+    parameterControls.addSliderControl("lengthScaleExponent", -4, 4, 0);
     parameterControls.addSliderControl("gravityStrength", 0.0, 1.0, 0.0);
     parameterControls.addSliderControl("particleSize", 0, 100, 40);
     parameterControls.addSliderControl("burstPathRandomisation", 0, 1.0, 0.05);

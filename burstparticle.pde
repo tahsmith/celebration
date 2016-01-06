@@ -1,4 +1,4 @@
- float burstParticleDrag = 1.0;
+float burstParticleDrag = 1.0;
 float burstParticleLifetime = 30.0;
 float burstPathRandomisation = 1.0;
 float burstAlphaFadeTime = 1.0;
